@@ -3048,7 +3048,7 @@ enb_sim_bsln_datpck = True
 enb_sim_usec = True 
 
 ## enable collect Use Case data using DataPack.
-enb_sim_usec_datpck = False
+enb_sim_usec_datpck = True
 
 ## Enable program of Use Cases.
 enb_usec_1 = False     ## Different Max Term of Loan
@@ -3071,7 +3071,7 @@ enb_folder_path = False
 
 ## ---------------------------------------------------- ##
 n_people = 30
-n_stat_round = 30
+n_stat_round = 3
     
 # =============================================================================
 if enb_main == True:    

@@ -42,16 +42,23 @@ enb_vis_plot = True
 ## Enable saving picture.
 enb_save_pic = False
 
+## Enble folder directory of session.
+enb_folder_path_sess = False
+
 # -----------------------------------------------------------------------------
 # 
 # -----------------------------------------------------------------------------
 
 # =============================================================================
-# Save python session after finish simulation.  
+# Saved python session from the finished simulation.  
 # =============================================================================
-## define path and file name to be saved.            
-folder_path = "../12. Results/DELL_mgt_results/mgt_0415_02/session/"
-filename = folder_path + "mgt_game_0415_02_session.pkl"    
+## define path and file name to be saved.
+if enb_folder_path_sess == True:
+	folder_path = "../session/"
+else:
+	folder_path = ""
+
+filename = folder_path + "mgt_game_04vv_kk_session.pkl"    
 
 # -----------------------------------------------------------------------------
 # load the session using dill
@@ -517,20 +524,20 @@ def three_boxplots(fig_number, df_x, plt_xlabel
     
 if enb_vis_plot == True:
     ## set the index value to get data from the list.
-    idx = 202
+    idx = 2
 # -----------------------------------------------------------------------------
 # Plot distributions and Bank results and Regulator results.
 # -----------------------------------------------------------------------------
-    datpck = datpck_lst_6[idx]
+    datpck = datpck_lst_2[idx]
     plot_graphs(fig_number, datpck, enb_save_pic)   
     
 # -----------------------------------------------------------------------------
 # Plot boxplot of the top-level results.
 # -----------------------------------------------------------------------------
-    df_out_scen_lst = df_out_scen_lst_6
-    df_x = df_out_scen_lst["LTI_limit"]
-    plt_xlabel = "LTI limit"
-    title_suffix = "over LTI limit"
+    df_out_scen_lst = df_out_scen_lst_2
+    df_x = df_out_scen_lst["mean_saving_coef"]
+    plt_xlabel = "Mean of Saving Coefficient"
+    title_suffix = "over saving coefficient"
         
     three_boxplots(fig_number, df_x, plt_xlabel
             , title_suffix, df_out_scen_lst)
